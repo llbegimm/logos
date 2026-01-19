@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MenuPage from './pages/MenuPage';
-import CartPage from './pages/CartPage';
-import CartSidebar from './components/CartSidebar';
+import MenuPage from './components/menu/MenuPage';
+import CartPage from './components/CartPage';
+import CartModal from './components/CartModal';
 
 function RouterComponent() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -20,10 +20,7 @@ function RouterComponent() {
         </Routes>
         
         {/* Сайдбар корзины (модальное окно) */}
-        <CartSidebar 
-          isOpen={isCartOpen} 
-          onClose={() => setIsCartOpen(false)}
-        />
+        <CartModal />
       </div>
     </Router>
   );
