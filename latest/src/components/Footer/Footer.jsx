@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaWhatsapp, FaPhone } from 'react-icons/fa';
-import './Footer.css';
+import './footer.css';
 
 const Footer = ({ setCurrentPage }) => {
   return (
