@@ -1,0 +1,222 @@
+/* HomePage.css */
+
+.home-page {
+  background: black;
+  color: #ffffff;
+  /* min-height: 70vh; */
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Герой секция */
+.hero-with-photo {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+
+.hero-photo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8);
+}
+
+.photo-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.hero-content-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 700px;
+  padding: 0 20px 120px;
+}
+
+.hero-title-overlay {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.hero-title-overlay .title-line {
+  display: block;
+}
+
+.hero-title-overlay .accent {
+  color: #4ade80;
+}
+
+.hero-subtitle-overlay {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #e5e7eb;
+  margin-bottom: 40px;
+  max-width: 550px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #1a472a, #4ade80);
+  color: #ffffff;
+  padding: 18px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(26, 71, 42, 0.4);
+}
+
+.hero-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.hero-cta:hover svg {
+  transform: translateX(5px);
+}
+
+/* Секция популярных блюд */
+.popular-section {
+  padding: 100px 0;
+  background: #0a0a0a;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #4ade80;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.products-grid {
+  display: grid;
+  background-color: black;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .hero-with-photo {
+    height: 600px;
+  }
+  
+  .hero-content-overlay {
+    padding-bottom: 80px;
+  }
+  
+  .hero-title-overlay {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-with-photo {
+    height: 500px;
+  }
+  
+  .hero-content-overlay {
+    padding-bottom: 60px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .hero-title-overlay {
+    font-size: 42px;
+    text-align: center;
+  }
+  
+  .hero-subtitle-overlay {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 36px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-with-photo {
+    height: 400px;
+  }
+  
+  .hero-content-overlay {
+    padding-bottom: 40px;
+  }
+  
+  .hero-title-overlay {
+    font-size: 32px;
+  }
+  
+  .hero-subtitle-overlay {
+    font-size: 16px;
+  }
+  
+  .hero-cta {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+}

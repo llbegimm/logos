@@ -1,0 +1,262 @@
+/* MenuPage.css - Минималистичный черно-желтый */
+
+.menu-page {
+  background: #000;
+  padding: 100px 0 60px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Заголовок */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  color: #FFD700;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin: 0 auto 16px;
+}
+
+.section-subtitle {
+  color: #888;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Категории - минимализм */
+.categories-filter {
+  margin-bottom: 50px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.filter-btn {
+  background: none;
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: #FFD700;
+}
+
+.filter-btn.active {
+  color: #FFD700;
+  font-weight: 500;
+}
+
+.filter-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #FFD700;
+}
+
+/* Сетка блюд */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Карточка блюда */
+.dish-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dish-image-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.dish-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dish-category-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFD700;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dish-price-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #FFD700;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Контент карточки */
+.dish-content {
+  padding: 24px;
+}
+
+.dish-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.dish-description {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Футер карточки */
+.dish-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dish-rating {
+  color: #FFD700;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.add-to-cart-btn {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #e6c200;
+}
+
+/* Пустое состояние */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.empty-state h3 {
+  color: #888;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .menu-page {
+    padding: 80px 0 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 32px;
+  }
+  
+  .filter-buttons {
+    gap: 24px;
+  }
+  
+  .filter-btn {
+    font-size: 15px;
+  }
+  
+  .dishes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .dish-image-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 28px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+  }
+  
+  .filter-buttons {
+    gap: 20px;
+  }
+  
+  .filter-btn {
+    font-size: 14px;
+  }
+  
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dish-content {
+    padding: 20px;
+  }
+  
+  .dish-name {
+    font-size: 17px;
+  }
+  
+  .dish-description {
+    font-size: 14px;
+  }
+}

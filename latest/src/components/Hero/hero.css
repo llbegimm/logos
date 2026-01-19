@@ -1,0 +1,94 @@
+.Hero {
+  position: relative;
+  height: 85vh;
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+  
+  /* ПРЯМАЯ ССЫЛКА НА КАЧЕСТВЕННОЕ ФОТО */
+  background-image: url('https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #111; /* Если фото не грузится, будет просто темно-серый фон */
+  padding-top: 130px; 
+  overflow: hidden;
+}
+
+.Overlay {
+  position: absolute;
+  inset: 0;
+  /* Градиент от черного к прозрачному, чтобы текст слева «горел» */
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.Container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.Box {
+  max-width: 550px;
+}
+
+.Label {
+  color: #FFD700;
+  letter-spacing: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Title {
+  color: #fff;
+  font-size: clamp(32px, 8vw, 60px);
+  margin: 15px 0;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.Line {
+  width: 60px;
+  height: 4px;
+  background: #FFD700;
+  margin: 25px 0;
+}
+
+.Text {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.Btn {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 16px 45px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.Btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .Hero { height: 70vh; padding-top: 80px; }
+  .Title { font-size: 36px; }
+  .Text { font-size: 16px; }
+}

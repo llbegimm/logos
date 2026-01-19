@@ -1,0 +1,42 @@
+.section {
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  border-radius: 2px;
+}
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53, #ff6b6b);
+  margin: 15px 0 25px 0;
+  border-radius: 1px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

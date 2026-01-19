@@ -1,0 +1,279 @@
+/* AuthModal.css */
+
+/* Базовый сброс для модального окна */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease forwards;
+  backdrop-filter: blur(5px);
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Контейнер модального окна */
+.auth-modal-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 450px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideUp 0.4s ease forwards;
+}
+
+/* Кнопка закрытия */
+.auth-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #ffd700;
+  font-size: 28px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.auth-modal-close:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+/* Заголовок */
+.auth-modal-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #ffd700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Табы переключения */
+.auth-modal-tabs {
+  display: flex;
+  gap: 2px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 30px;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.auth-tab-btn.active {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.auth-tab-btn:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffd700;
+}
+
+/* Форма */
+.auth-modal-form {
+  width: 100%;
+}
+
+/* Группы полей формы */
+.auth-form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffd700;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.auth-form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+}
+
+.auth-form-group input::placeholder {
+  color: #888;
+}
+
+/* Кнопка отправки */
+.auth-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Дополнительные ссылки */
+.auth-modal-links {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-modal-links a {
+  color: #ffd700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-modal-links a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .auth-modal-content {
+    padding: 30px 20px;
+    width: 95%;
+    max-width: 400px;
+  }
+  
+  .auth-modal-title {
+    font-size: 24px;
+  }
+  
+  .auth-tab-btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .auth-form-group input {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+  
+  .auth-submit-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-modal-content {
+    padding: 25px 15px;
+    border-radius: 15px;
+  }
+  
+  .auth-modal-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .auth-modal-tabs {
+    margin-bottom: 20px;
+  }
+  
+  .auth-tab-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .auth-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .auth-form-group input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Анимация при закрытии */
+.auth-modal-overlay.closing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

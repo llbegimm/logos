@@ -1,0 +1,237 @@
+/* Auth.css - Черно-желтый мягкий стиль */
+.AuthOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.AuthCard {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 35px 35px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.CloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #222;
+  border: 1px solid #444;
+  color: #FFD700;
+  font-size: 22px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.CloseBtn:hover {
+  background: #333;
+}
+
+.AuthTitle {
+  color: #FFD700;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+}
+
+.AuthSub {
+  color: #aaa;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.AuthInput {
+  width: 100%;
+  padding: 16px 20px;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.AuthInput:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.AuthInput::placeholder {
+  color: #777;
+}
+
+.PolicySmall {
+  color: #888;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 10px 0 25px;
+  line-height: 1.4;
+}
+
+.BtnWA {
+  width: 100%;
+  padding: 17px;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.BtnWA:hover {
+  background: #FFE44D;
+}
+
+/* Шаг с кодом */
+.StepCode {
+  text-align: center;
+}
+
+.StepCode p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.StepCode b {
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.CodeInput {
+  width: 200px;
+  padding: 16px;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #FFD700;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.CodeInput:focus {
+  outline: none;
+  border-color: #FFD700;
+}
+
+.BtnGold {
+  width: 100%;
+  padding: 17px;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.BtnGold:hover {
+  background: #FFE44D;
+}
+
+.BackLink {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.BackLink:hover {
+  color: #FFD700;
+}
+
+/* Разделитель */
+.AuthDivider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.AuthDivider::before,
+.AuthDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #444;
+}
+
+.AuthDivider span {
+  padding: 0 15px;
+}
+
+/* Социальные кнопки */
+.SocialButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SocBtn {
+  padding: 16px;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.SocBtn:hover {
+  background: #1a1a1a;
+  border-color: #FFD700;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .AuthCard {
+    padding: 30px 25px 25px;
+  }
+  
+  .AuthTitle {
+    font-size: 1.6rem;
+  }
+  
+  .CodeInput {
+    width: 160px;
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+    padding: 14px;
+  }
+}

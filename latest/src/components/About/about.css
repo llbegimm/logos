@@ -1,0 +1,306 @@
+.about-page {
+  padding: 120px 0 80px;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 100px;
+}
+
+/* 1. ПРИВЕТСТВЕННЫЙ БЛОК */
+.about-hero {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.about-text-content {
+  flex: 1;
+}
+
+.about-subtitle {
+  display: inline-block;
+  color: #FFD700;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FFD700;
+}
+
+.about-title {
+  color: #FFD700;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-description {
+  color: #cccccc;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.about-badges {
+  display: flex;
+  gap: 20px;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #111111;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  color: #FFD700;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.badge-item:hover {
+  border-color: #FFD700;
+  background-color: #1a1a1a;
+}
+
+.badge-item .icon-green {
+  color: #FFD700;
+}
+
+.badge-item .icon-blue {
+  color: #FFD700;
+}
+
+.about-image-wrapper {
+  flex: 1;
+}
+
+.about-main-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+/* 2. БЛОК С ЦИФРАМИ */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.stat-card {
+  background-color: #111111;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: #FFD700;
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  color: #FFD700;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  color: #cccccc;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* 3. БЛОК ЦЕННОСТИ */
+.about-values {
+  margin-bottom: 80px;
+}
+
+.section-title {
+  text-align: center;
+  color: #FFD700;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.value-card {
+  background-color: #111111;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  border-color: #FFD700;
+  background-color: #1a1a1a;
+}
+
+.value-card .icon-gold,
+.value-card .icon-red,
+.value-card .icon-green-alt {
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.value-card h4 {
+  color: #FFD700;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.value-card p {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* 4. ЦИТАТА */
+.about-quote {
+  background-color: #111111;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 60px 80px;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+}
+
+.quote-mark {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  color: #FFD700;
+  font-size: 80px;
+  font-weight: 700;
+  opacity: 0.3;
+}
+
+.quote-text {
+  color: #ffffff;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  color: #FFD700;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .about-hero {
+    gap: 40px;
+  }
+  
+  .about-title {
+    font-size: 32px;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 100px 0 60px;
+  }
+  
+  .about-container {
+    padding: 0 16px;
+  }
+  
+  .about-hero {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-quote {
+    padding: 40px 30px;
+  }
+  
+  .quote-mark {
+    font-size: 60px;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .quote-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-badges {
+    flex-direction: column;
+  }
+  
+  .about-title {
+    font-size: 28px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .stat-card h3 {
+    font-size: 36px;
+  }
+}

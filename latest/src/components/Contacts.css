@@ -1,0 +1,199 @@
+/* Contacts Section - простой стиль */
+.contacts-section {
+  padding: 140px 0 80px;
+  background-color: #000000;
+height: 500px;;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  color: #FFD700;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.contacts-simple-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Текстовая часть */
+.contacts-text-side {
+  background-color: #111111;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #333333;
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.info-icon {
+  color: #FFD700;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.info-block strong {
+  color: #FFD700;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-block p {
+  color: #CCCCCC;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.info-block a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.info-block a:hover {
+  text-decoration: underline;
+}
+
+/* Социальные ссылки */
+.social-simple-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.social-link.inst {
+  background-color: #000000;
+  border: 1px solid #333333;
+  color: #FFFFFF;
+}
+
+.social-link.inst:hover {
+  background-color: #111111;
+  border-color: #444444;
+}
+
+.social-link.tg {
+  background-color: #FFD700;
+  color: #000000;
+  border: 1px solid #FFD700;
+}
+
+.social-link.tg:hover {
+  background-color: #FFC107;
+}
+
+/* Карта */
+.contacts-map-side {
+  height: 400px;
+  background-color: #111111;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333333;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .contacts-simple-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contacts-map-side {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-section {
+    padding: 120px 0 60px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .contacts-text-side {
+    padding: 25px;
+  }
+  
+  .social-simple-links {
+    flex-direction: column;
+  }
+  
+  .social-link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .contacts-text-side {
+    padding: 20px;
+  }
+  
+  .info-block {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .contacts-map-side {
+    height: 300px;
+  }
+}
+
+
+.contacts-section {
+    background-color:black !important; /* Тот же черный! */
+    color: white !important;
+    padding-top: 20px !important; /* Уменьшаем отступ сверху */
+    margin-top: 0 !important;
+    border-top: 1px solid #333; /* Тонкая линия разделения вместо дырки */
+}
+
+/* Сделаем заголовки в контактах тоже желтыми для стиля */
+.contacts-section h2, .contacts-section h4, .info-icon {
+    color: #ffcc00 !important;
+}
+
+.contact-text p, .info-block p {
+    color: #ccc !important;
+}
