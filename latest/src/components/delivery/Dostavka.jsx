@@ -1,5 +1,5 @@
 import React from 'react';
-import './delivery.css';
+import './dostavka.css';
 
 const Delivery = () => {
   return (
@@ -12,7 +12,6 @@ const Delivery = () => {
           <p>Простые шаги к вкусному ужину</p>
         </div>
 
-        {/* Шаги заказа */}
         <div className="steps-grid">
           <div className="step-card">
             <div className="step-num">01</div>

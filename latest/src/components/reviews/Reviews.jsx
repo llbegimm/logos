@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Star, Send, User } from 'lucide-react';
-import './Reviews.css';
+import './reviews.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([
@@ -36,7 +36,6 @@ const Reviews = () => {
         <h2 className="reviews-title-yellow">ОТЗЫВЫ ГОСТЕЙ</h2>
 
         <div className="reviews-compact-grid">
-          {/* ФОРМА (СЛЕВА) */}
           <div className="dark-form-box">
             <form onSubmit={handleSubmit}>
               <input 
@@ -71,7 +70,6 @@ const Reviews = () => {
             </form>
           </div>
 
-          {/* ОТЗЫВЫ (СПРАВА) */}
           <div className="reviews-items-column">
             {reviews.map((review) => (
               <div key={review.id} className="dark-review-card">

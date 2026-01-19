@@ -37,7 +37,6 @@ const OffersPage = ({ onBook }) => {
         <div className="offers-grid">
           {offers.map((offer) => (
             <div key={offer.id} className="offer-card">
-              {/* Добавляем обертку для изображения */}
               <div className="offer-image">
                 <img src={offer.image} alt={offer.title} />
               </div>

@@ -19,7 +19,6 @@ function RouterComponent() {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
         
-        {/* Сайдбар корзины (модальное окно) */}
         <CartModal />
       </div>
     </Router>

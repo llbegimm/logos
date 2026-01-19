@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Plus, Minus, Trash2, ShoppingBag, MessageCircle, CheckCircle, MapPin } from 'lucide-react';
-import { useCart } from './CartContext';
+import { useCart } from './Cart';
 import './CartModal.css';
 
 const CartModal = () => {
@@ -16,7 +16,6 @@ const CartModal = () => {
   
   const [isSent, setIsSent] = useState(false);
   
-  // Состояние для адреса
   const [addressData, setAddressData] = useState({
     street: '',
     house: '',
@@ -31,7 +30,6 @@ const CartModal = () => {
 
   if (!isCartOpen) return null;
 
-  // Обработчик изменения полей адреса
   const handleAddressChange = (e) => {
     const { name, value } = e.target;
     setAddressData(prev => ({ ...prev, [name]: value }));
@@ -43,7 +41,6 @@ const CartModal = () => {
       return;
     }
 
-    // Проверка обязательных полей
     if (!addressData.street || !addressData.house) {
       alert("Пожалуйста, укажите улицу и номер дома!");
       return;
@@ -54,7 +51,6 @@ const CartModal = () => {
       orderDetails += `${index + 1}. ${item.name} — ${item.quantity} шт.\n`;
     });
 
-    // Формируем блок адреса для сообщения
     const addressDetails = `📍 АДРЕС ДОСТАВКИ:\nУлица: ${addressData.street}\nДом: ${addressData.house}${addressData.entrance ? `, Подъезд: ${addressData.entrance}` : ''}${addressData.floor ? `, Этаж: ${addressData.floor}` : ''}${addressData.apartment ? `, Кв: ${addressData.apartment}` : ''}\n${addressData.comment ? `💬 Комментарий: ${addressData.comment}` : ''}`;
 
     const finalMessage = `🚀 НОВЫЙ ЗАКАЗ\n\n${orderDetails}\n💰 ИТОГО: ${getTotalPrice()} сом\n\n${addressDetails}`;

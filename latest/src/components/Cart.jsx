@@ -27,12 +27,10 @@ export const CartProvider = ({ children }) => {
     });
   }, []);
 
-  // Удалить из корзины
   const removeFromCart = useCallback((itemId) => {
     setCartItems(prev => prev.filter(item => item.id !== itemId));
   }, []);
 
-  // Изменить количество
   const updateQuantity = useCallback((itemId, quantity) => {
     setCartItems(prev =>
       prev.map(item =>
@@ -41,12 +39,10 @@ export const CartProvider = ({ children }) => {
     );
   }, []);
 
-  // Очистить корзину
   const clearCart = useCallback(() => {
     setCartItems([]);
   }, []);
 
-  // Общая цена
   const getTotalPrice = useCallback(() => {
     return cartItems.reduce((total, item) => {
       const price = parsePrice(item.price);
@@ -54,21 +50,17 @@ export const CartProvider = ({ children }) => {
     }, 0);
   }, [cartItems]);
 
-  // Парсер цены
   const parsePrice = (price) => {
     if (typeof price === 'number') return price;
     if (typeof price === 'string') {
-      // Убираем все нецифровые символы
       const numeric = price.replace(/\D/g, '');
       return parseInt(numeric) || 0;
     }
     return 0;
   };
 
-  // Общее количество товаров
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  // Открыть/закрыть корзину
   const toggleCart = useCallback(() => {
     setIsCartOpen(prev => !prev);
   }, []);

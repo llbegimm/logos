@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useCart } from '../components/CartContext';
+import { useCart } from '../components/Cart';
 import Hero from '../components/Hero/Hero';
 import Reviews from '../components/reviews/Reviews';
 import Contacts from '../components/Contacts';
-// УДАЛИЛИ импорт Footer отсюда
 import './HomeContent.css';
 
 const HomeContent = ({ setCurrentPage }) => {
     const { addToCart } = useCart();
-    const [dishes, setDishes] = useState([]);
+    const [dishes, setDishes] = useState([]); 3
     const [isLoading, setIsLoading] = useState(true);
     const [addedToCart, setAddedToCart] = useState({});
 
@@ -57,8 +56,8 @@ const HomeContent = ({ setCurrentPage }) => {
                         <div className="popular-dishes-grid">
                             {dishes.map(dish => (
                                 <div key={dish.id} className="popular-dish-card">
-                                    <div 
-                                        className="popular-dish-image" 
+                                    <div
+                                        className="popular-dish-image"
                                         style={{ backgroundImage: `url(${dish.avatar})` }}
                                     >
                                         <div className="dish-price">{formatPrice(dish.price)}</div>
@@ -67,7 +66,7 @@ const HomeContent = ({ setCurrentPage }) => {
                                         <h3 className="popular-dish-name">{dish.name}</h3>
                                         <div className="popular-dish-footer">
                                             <span className="dish-weight">{dish.weight} г</span>
-                                            <button 
+                                            <button
                                                 className={`add-to-cart-btn ${addedToCart[dish.id] ? 'added' : ''}`}
                                                 onClick={() => handleAddToCart(dish)}
                                             >
@@ -88,7 +87,7 @@ const HomeContent = ({ setCurrentPage }) => {
                 </div>
             </section>
 
-            {/* ТЕПЕРЬ ТУТ ТОЛЬКО ОТЗЫВЫ И КОНТАКТЫ */}
+
             <div className="seamless-wrapper">
                 <Reviews />
                 <Contacts />

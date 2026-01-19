@@ -1,113 +1,103 @@
 import React, { useState } from 'react';
 import './AuthModal.css';
 
-const SimpleAuthModal = ({ onClose }) => {
+const AuthModal = ({ onClose, onLoginSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
-    password: '',
-    name: ''
+    password: ''
   });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+
     if (isLogin) {
-      // Логин
-      const users = JSON.parse(localStorage.getItem('users') || '[]');
-      const user = users.find(u => u.email === formData.email && u.password === formData.password);
-      
-      if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        alert(`Добро пожаловать, ${user.name}!`);
-        onClose();
-        window.location.reload();
-      } else {
-        alert('Неверный email или пароль');
-      }
-    } else {
-      // Регистрация
-      const users = JSON.parse(localStorage.getItem('users') || '[]');
-      
-      if (users.some(u => u.email === formData.email)) {
-        alert('Пользователь с таким email уже существует');
+      const foundUser = users.find(
+        (u) => u.email === formData.email && u.password === formData.password
+      );
+
+      if (!foundUser) {
+        alert('Неверный email или пароль!');
         return;
       }
+
+      localStorage.setItem('currentUser', JSON.stringify(foundUser));
       
+      if (onLoginSuccess) onLoginSuccess(foundUser);
+      alert(`С возвращением, ${foundUser.name}!`);
+    } else {
+      if (users.some((u) => u.email === formData.email)) {
+        alert('Такой email уже зарегистрирован!');
+        return;
+      }
+
       const newUser = {
         id: Date.now(),
         name: formData.name,
         email: formData.email,
-        password: formData.password
+        password: formData.password,
       };
-      
+
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
-      localStorage.setItem('currentUser', JSON.stringify(newUser));
       
-      alert(`Регистрация успешна, ${formData.name}!`);
-      onClose();
-      window.location.reload();
-    }
-  };
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+      if (onLoginSuccess) onLoginSuccess(newUser);
+      alert('Регистрация успешна!');
+    }
+    
+    onClose(); 
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
-        
-        <h2>{isLogin ? 'Вход' : 'Регистрация'}</h2>
-        
-        <form onSubmit={handleSubmit}>
+    <div className="auth-modal-overlay" onClick={onClose}>
+      <div className="auth-modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="auth-modal-close" onClick={onClose}>×</button>
+        <h2 className="auth-modal-title">{isLogin ? 'ВХОД' : 'РЕГИСТРАЦИЯ'}</h2>
+
+        <div className="auth-modal-tabs">
+          <button 
+            type="button"
+            className={`auth-tab-btn ${isLogin ? 'active' : ''}`}
+            onClick={() => setIsLogin(true)}
+          >Вход</button>
+          <button 
+            type="button"
+            className={`auth-tab-btn ${!isLogin ? 'active' : ''}`}
+            onClick={() => setIsLogin(false)}
+          >Регистрация</button>
+        </div>
+
+        <form className="auth-modal-form" onSubmit={handleSubmit}>
           {!isLogin && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Имя"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+            <div className="auth-form-group">
+              <label>Имя</label>
+              <input name="name" type="text" value={formData.name} onChange={handleChange} required placeholder="Иван" />
+            </div>
           )}
-          
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          
-          <input
-            type="password"
-            name="password"
-            placeholder="Пароль"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          
-          <button type="submit" className="submit-btn">
-            {isLogin ? 'Войти' : 'Зарегистрироваться'}
+          <div className="auth-form-group">
+            <label>Email</label>
+            <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="mail@example.com" />
+          </div>
+          <div className="auth-form-group">
+            <label>Пароль</label>
+            <input name="password" type="password" value={formData.password} onChange={handleChange} required placeholder="••••••" />
+          </div>
+          <button type="submit" className="auth-submit-btn">
+            {isLogin ? 'Войти' : 'Создать аккаунт'}
           </button>
         </form>
-        
-        <div className="switch-mode">
-          <button onClick={() => setIsLogin(!isLogin)}>
-            {isLogin ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт? Войти'}
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 
-export default SimpleAuthModal;
+export default AuthModal;

@@ -8,7 +8,7 @@ const Footer = ({ setCurrentPage }) => {
       <div className="footer-container">
         
         <div className="footer-left">
-          <h2 onClick={() => setCurrentPage('home')}>КОМПА<span>НИЯ</span></h2>
+          <h2 onClick={() => setCurrentPage('home')}>LOG<span>OS</span></h2>
           <p>Лучший сервис для вас</p>
         </div>
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Utensils, Heart, ShieldCheck, Users, Trophy, Leaf } from 'lucide-react';
-import './about.css'; // Не забудьте создать этот файл
+import './about.css'; 
 
 const About = () => {
   return (
     <div className="about-page">
       <div className="about-container">
         
-        {/* 1. ПРИВЕТСТВЕННЫЙ БЛОК */}
         <section className="about-hero">
           <div className="about-text-content">
             <span className="about-subtitle">О НАС</span>

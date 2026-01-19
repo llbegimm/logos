@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { dishes } from "../dishes";
-import { useCart } from "../CartContext"; 
+import { useCart } from "../Cart"; 
 import "./MenuPage.css";
 
 const MenuPage = () => {

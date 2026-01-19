@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useCart } from './CartContext';
-import { MapPin, CreditCard, ArrowLeft, Trash2 } from 'lucide-react'; // Добавил иконки для красоты
+import { MapPin, CreditCard, ArrowLeft, Trash2 } from 'lucide-react'; 
 import './CartPage.css';
 
 const CartPage = ({ setCurrentPage }) => {
   const { cart, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
   
-  // Состояние для адреса (как в профессиональных доставках)
   const [addressData, setAddressData] = useState({
     street: '',
     house: '',
@@ -24,20 +23,16 @@ const CartPage = ({ setCurrentPage }) => {
     if (item) updateQuantity(id, (item.quantity || 1) + delta);
   };
 
-  // ВМЕСТО ОТПРАВКИ В ТГ — ПЕРЕХОД К ОПЛАТЕ
   const handleGoToPayment = () => {
     if (cart.length === 0) return;
 
-    // Проверка адреса
     if (!addressData.street || !addressData.house) {
       alert("Пожалуйста, введите улицу и номер дома!");
       return;
     }
 
-    // Сохраняем адрес в память, чтобы Oplata.jsx его увидела
     localStorage.setItem('userAddress', JSON.stringify(addressData));
 
-    // Переходим на страницу оплаты
     setCurrentPage('oplata');
   };
 
@@ -56,7 +51,6 @@ const CartPage = ({ setCurrentPage }) => {
       <h1>Оформление заказа</h1>
       
       <div className="cart-wrapper">
-        {/* ЛЕВАЯ ЧАСТЬ: Список товаров и Адрес */}
         <div className="cart-main-section">
           
           <div className="cart-list">
@@ -98,7 +92,6 @@ const CartPage = ({ setCurrentPage }) => {
           </div>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Итого */}
         <div className="cart-sidebar">
           <div className="total-card">
             <h3>ИТОГО</h3>
@@ -107,9 +100,7 @@ const CartPage = ({ setCurrentPage }) => {
               <strong>{getTotalPrice()} сом</strong>
             </div>
             
-            <button className="checkout-btn" onClick={handleGoToPayment}>
-              ВЫБРАТЬ СПОСОБ ОПЛАТЫ <CreditCard size={18} style={{marginLeft: '10px'}}/>
-            </button>
+            
             
             <button className="back-link" onClick={() => setCurrentPage('menu')}>
               <ArrowLeft size={16} /> Вернуться в меню

@@ -1,15 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, User, Menu, X } from 'lucide-react';
-import { useCart } from '../CartContext';
+import { ShoppingCart, User, Menu, X, LogOut } from 'lucide-react'; // Добавил LogOut
+import { useCart } from '../Cart';
 import './Header.css';
 
-// Добавили проп onOpenAuth
 const Header = ({ setCurrentPage, onOpenAuth }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeNav, setActiveNav] = useState('home');
   
+  // ДОБАВИЛИ: Состояние текущего пользователя
+  const [user, setUser] = useState(null);
+
   const { cartCount, setIsCartOpen, cartItems } = useCart();
+
+  // ПРОВЕРКА АВТОРИЗАЦИИ: следим за localStorage
+  useEffect(() => {
+    const checkUser = () => {
+      const savedUser = localStorage.getItem('currentUser');
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      } else {
+        setUser(null);
+      }
+    };
+
+    checkUser();
+    window.addEventListener('storage', checkUser);
+    window.addEventListener('userLogin', checkUser);
+
+    return () => {
+      window.removeEventListener('storage', checkUser);
+      window.removeEventListener('userLogin', checkUser);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    setUser(null);
+    window.dispatchEvent(new Event('userLogin')); // Уведомляем систему
+    alert('Вы вышли из системы');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +74,7 @@ const Header = ({ setCurrentPage, onOpenAuth }) => {
         <div className="container">
           <div className="header-main">
             {/* Логотип */}
-            <div 
-              className="logo"
-              onClick={() => handleNavClick('home')}
-            >
+            <div className="logo" onClick={() => handleNavClick('home')}>
               <div className="logo-icon">
                 <span className="logo-symbol">🍽</span>
               </div>
@@ -65,15 +92,10 @@ const Header = ({ setCurrentPage, onOpenAuth }) => {
                 </div>
               </div>
 
-              <button 
-                className="cart-container"
-                onClick={handleCartClick}
-              >
+              <button className="cart-container" onClick={handleCartClick}>
                 <div className="cart-icon-wrapper">
                   <ShoppingCart size={24} />
-                  {cartCount > 0 && (
-                    <span className="cart-count">{cartCount}</span>
-                  )}
+                  {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
                 </div>
                 <div className="cart-info">
                   <span className="cart-text">Корзина</span>
@@ -83,11 +105,23 @@ const Header = ({ setCurrentPage, onOpenAuth }) => {
                 </div>
               </button>
 
-              {/* Кнопка ВОЙТИ с привязкой к регистрации */}
-              <button className="login-btn" onClick={onOpenAuth}>
-                <User size={20} />
-                <span>Войти</span>
-              </button>
+              {/* ЛОГИКА АВТОРИЗАЦИИ В ШАПКЕ */}
+              {user ? (
+                <div className="user-profile-nav">
+                  <div className="user-welcome">
+                    <User size={18} color="#ffd700" />
+                    <span>{user.name}</span>
+                  </div>
+                  <button className="logout-icon-btn" onClick={handleLogout} title="Выйти">
+                    <LogOut size={18} />
+                  </button>
+                </div>
+              ) : (
+                <button className="login-btn" onClick={onOpenAuth}>
+                  <User size={20} />
+                  <span>Войти</span>
+                </button>
+              )}
 
               <button 
                 className="mobile-menu-btn"
@@ -98,7 +132,6 @@ const Header = ({ setCurrentPage, onOpenAuth }) => {
             </div>
           </div>
 
-          {/* Навигация */}
           <nav className={`main-nav ${isMenuOpen ? 'open' : ''}`}>
             {NAV_ITEMS.map(item => (
               <button
@@ -114,10 +147,7 @@ const Header = ({ setCurrentPage, onOpenAuth }) => {
       </header>
 
       {isMenuOpen && (
-        <div 
-          className="mobile-menu-overlay"
-          onClick={() => setIsMenuOpen(false)}
-        />
+        <div className="mobile-menu-overlay" onClick={() => setIsMenuOpen(false)} />
       )}
     </>
   );

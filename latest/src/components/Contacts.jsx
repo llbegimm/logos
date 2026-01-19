@@ -3,7 +3,6 @@ import { MapPin, Phone, Clock, Instagram, Send } from 'lucide-react';
 import './Contacts.css';
 
 const Contacts = () => {
-  // Прямая ссылка на встраивание карты (Турусбекова 109)
   const googleMapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.8341258607144!2d74.58434317658797!3d42.87635200234726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec81915ea075d%3A0xf9fede37851dcd21!2zMTA5INGD0LsuINCi0YPRgNGD0YHQsdC10LrQvtCy0LAsINCR0LjRiNC60LXQuiA3MjAwMDE!5e0!3m2!1sru!2skg!4v1709123456789!5m2!1sru!2skg";
 
   return (
@@ -13,7 +12,6 @@ const Contacts = () => {
 
         <div className="contacts-simple-grid">
           <div className="contacts-text-side">
-            {/* Блок адреса */}
             <div className="info-block">
               <MapPin size={20} className="info-icon" />
               <div>
@@ -22,7 +20,6 @@ const Contacts = () => {
               </div>
             </div>
 
-            {/* Блок телефона */}
             <div className="info-block">
               <Phone size={20} className="info-icon" />
               <div>
@@ -31,7 +28,6 @@ const Contacts = () => {
               </div>
             </div>
 
-            {/* Блок времени */}
             <div className="info-block">
               <Clock size={20} className="info-icon" />
               <div>
@@ -40,7 +36,6 @@ const Contacts = () => {
               </div>
             </div>
 
-            {/* Соцсети */}
             <div className="social-simple-links">
               <a href="https://www.instagram.com/llbegim_" target="_blank" rel="noopener noreferrer" className="social-link inst">
                 <Instagram size={18} /> Instagram
@@ -51,7 +46,6 @@ const Contacts = () => {
             </div>
           </div>
 
-          {/* Правая часть с картой */}
           <div className="contacts-map-side">
             <div style={{ width: '100%', height: '100%', minHeight: '400px', background: '#eee', borderRadius: '12px', overflow: 'hidden' }}>
               <iframe
